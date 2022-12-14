@@ -1,5 +1,5 @@
-import React from "react";
 import PageBanner from "../../components/PageBanner";
+import Member1 from "../../assets/images/members/member-1.jpg";
 import { members } from "../../data/members";
 
 const WhoWeAre = () => {
@@ -15,13 +15,22 @@ const WhoWeAre = () => {
               </h1>
               <p className="max-w-prose m-6 md:text-lg">
                 Maharlika Divas Dance group is registered as a non-profit
-                organicatiom named undwe Maharlika Women's Association of
+                organication named under Maharlika Women's Association of
                 Calgary founded by Cynthia Lacey. The group dances cultural and
                 modern dance. Recently Maharlika Divas had their successful
                 concert last October 22, 2022. All members are volunteer and
                 they are not professional dancers, they just want to enjoy and
                 share their talent in the community and different events.
               </p>
+            </section>
+            <section>
+              <h1 className="text-center m-6 text-2xl md:text-4xl">Founder</h1>
+              <img
+                src={Member1}
+                alt="Founder: Cynthia Lacey"
+                className="w-full h-96"
+              />
+              <div className="text-center mb-6 mt-2">Name</div>
             </section>
           </div>
           <section>

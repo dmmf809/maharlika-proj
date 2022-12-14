@@ -23,6 +23,9 @@ const TheFooter = () => {
         <Sponsors />
       </div>
       <div className="bg-zinc-500 md:bg-indigo-900 text-white">
+        <p className="md:hidden text-center text-xs pt-4">
+          More questions? Visit our socials:
+        </p>
         <SocialLinks />
         <p className="text-center p-2 md:text-lg text-sm">
           &copy; 2022 Maharlika Women's Association Calgary

@@ -35,7 +35,6 @@ function App() {
               element={<PreviousEvents />}
             />
             <Route path="/blog/maharlika-blog" element={<Blog />} />
-            <Route path="/donate" element={<Donate />} />
           </Routes>
         </div>
         <TheFooter />

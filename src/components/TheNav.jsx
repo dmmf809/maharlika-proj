@@ -34,7 +34,7 @@ const TheNav = ({ toggle }) => {
       </div>
       <div className="flex justify-center md:hidden">
         <div>
-          <Link to="/donate">
+          <Link to="https://donate.stripe.com/test_6oE7v4cFade9aYMcMM">
             <AppButton text="Donate" />
           </Link>
         </div>
@@ -46,7 +46,7 @@ const TheNav = ({ toggle }) => {
         </li>
         <NavLinks />
         <li>
-          <Link to="/donate">
+          <Link to="https://donate.stripe.com/test_6oE7v4cFade9aYMcMM">
             <AppButton text="Donate" />
           </Link>
         </li>

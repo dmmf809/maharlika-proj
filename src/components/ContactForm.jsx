@@ -20,7 +20,7 @@ const ContactForm = () => {
       <div className="w-4/5 md:w-2/5 mx-auto md:mx-0">
         <img src={Logo} alt="Maharlika Diva Dancers logo" />
       </div>
-      <div className="md:mx-auto py-8 md:pt-16 md:px-36">
+      <div className="md:mx-auto py-8 md:pt-16 md:px-36" id="contact">
         <h2 className="mb-4 text-4xl tracking-tight font-semibold text-center text-gray-900 dark:text-white">
           Contact Us
         </h2>
