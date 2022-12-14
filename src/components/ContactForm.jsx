@@ -16,11 +16,11 @@ const ContactForm = () => {
     console.log(conFom);
   };
   return (
-    <section className="flex flex-col md:flex-row bg-[#4E4E4E]">
+    <section className="flex flex-col md:flex-row md:w-full bg-[#4E4E4E]">
       <div className="w-4/5 md:w-2/5 mx-auto md:mx-0">
         <img src={Logo} alt="Maharlika Diva Dancers logo" />
       </div>
-      <div className="max-w-screen-md py-8">
+      <div className="md:mx-auto py-8 md:pt-16 md:px-36">
         <h2 className="mb-4 text-4xl tracking-tight font-semibold text-center text-gray-900 dark:text-white">
           Contact Us
         </h2>
@@ -33,7 +33,7 @@ const ContactForm = () => {
               Name
             </label>
             <input
-              className="block p-2 w-full text-sm"
+              className="block p-2 w-full md:w-96 text-sm"
               type="text"
               id="name"
               required

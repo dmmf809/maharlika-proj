@@ -4,11 +4,11 @@ export const links = [
     showSubLinks: true,
     subLinks: [
       {
-        link: "/",
+        link: "/about/who-we-are",
         text: "Who We Are",
       },
       {
-        link: "/",
+        link: "/about/members",
         text: "Members",
       },
     ],
@@ -19,11 +19,11 @@ export const links = [
     showSubLinks: true,
     subLinks: [
       {
-        link: "/",
+        link: "/events/previous-events",
         text: "Previous Events",
       },
       {
-        link: "/",
+        link: "/events/upcoming-events",
         text: "Upcoming Events",
       },
     ],
@@ -34,7 +34,7 @@ export const links = [
     showSubLinks: true,
     subLinks: [
       {
-        link: "/",
+        link: "blog/maharlika-blog",
         text: "Maharlika Blog",
       },
     ],
