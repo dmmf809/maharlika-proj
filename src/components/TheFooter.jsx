@@ -22,7 +22,7 @@ const TheFooter = () => {
         </div>
         <Sponsors />
       </div>
-      <div>
+      <div className="bg-zinc-500 md:bg-indigo-900 text-white">
         <SocialLinks />
         <p className="text-center p-2 md:text-lg text-sm">
           &copy; 2022 Maharlika Women's Association Calgary

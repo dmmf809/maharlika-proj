@@ -1,20 +1,5 @@
 export const links = [
   {
-    title: "About",
-    showSubLinks: true,
-    subLinks: [
-      {
-        link: "/about/who-we-are",
-        text: "Who We Are",
-      },
-      {
-        link: "/about/members",
-        text: "Members",
-      },
-    ],
-  },
-
-  {
     title: "Events",
     showSubLinks: true,
     subLinks: [

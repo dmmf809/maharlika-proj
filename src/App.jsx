@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Members from "./pages/About/Members";
-import WhoWeAre from "./pages/About/WhoWeAre";
+import About from "./pages/About";
 import UpcomingEvents from "./pages/Events/UpcomingEvents";
 import Blog from "./pages/Blog";
 import Donate from "./pages/Donate";
@@ -26,9 +25,7 @@ function App() {
         <div className="grow">
           <Routes>
             <Route path="/" element={<Home />} />
-
-            <Route path="/about/who-we-are" element={<WhoWeAre />} />
-            <Route path="/about/members" element={<Members />} />
+            <Route path="/about" element={<About />} />
             <Route
               path="/events/upcoming-events"
               element={<UpcomingEvents />}

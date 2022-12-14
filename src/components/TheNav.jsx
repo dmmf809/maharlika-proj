@@ -17,7 +17,7 @@ const TheNav = ({ toggle }) => {
         </Link>
       </span>
       {/** Mobile Nav */}
-      <div className="flex w-full justify-between md:hidden cursor-pointer">
+      <div className="flex w-full justify-between md:hidden">
         <div className="ml-2 mt-2 mb-2">
           <Link to="/">
             <img
@@ -28,7 +28,7 @@ const TheNav = ({ toggle }) => {
             />
           </Link>
         </div>
-        <div onClick={toggle} className="my-8 mr-4">
+        <div onClick={toggle} className="my-8 mr-4 cursor-pointer">
           <AiOutlineMenu color="white" size={30} />
         </div>
       </div>
@@ -41,6 +41,9 @@ const TheNav = ({ toggle }) => {
       </div>
       {/**End Mobile Nav */}
       <ul className="hidden md:flex items-center space-x-12 mx-4 text-white">
+        <li className="font-navLinks text-2xl hover:text-yellow-300">
+          <Link to="/about">About</Link>
+        </li>
         <NavLinks />
         <li>
           <Link to="/donate">
