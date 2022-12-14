@@ -1,4 +1,5 @@
 import PageBanner from "../../components/PageBanner";
+import Banner from "../../assets/images/page-banner/who-we-are.jpg";
 import Member1 from "../../assets/images/members/member-1.jpg";
 import { useEffect, useState } from "react";
 import supabase from "../../config/supabaseClient";
@@ -14,7 +15,7 @@ const WhoWeAre = () => {
       if (data !== null) {
         setImages(data);
       } else {
-        setErrorMsg("Images cant be loaded at the moment. Sorry");
+        setErrorMsg("Images can't be loaded at the moment. Sorry");
         console.error(error);
       }
     };
@@ -24,7 +25,7 @@ const WhoWeAre = () => {
 
   return (
     <>
-      <PageBanner />
+      <PageBanner image={Banner} alt="Group photo with Christmas outfits" />
       <article className="my-10">
         <div className="min-h-screen">
           <div className="flex flex-col justify-center items-center">

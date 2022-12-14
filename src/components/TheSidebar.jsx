@@ -22,7 +22,7 @@ const TheSidebar = ({ istoggle, toggle }) => {
       <div className="absolute cursor-pointer top-2 left-2">
         <Link to="/" onClick={toggle}>
           <img
-            src="./maharlika-logo.png"
+            src="./logo.png"
             loading="lazy"
             alt="Maharlika Women's Association of Calgary"
             className="block h-20 w-auto"

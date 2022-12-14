@@ -16,7 +16,7 @@ const NavLinks = () => {
     <>
       {links.map((link) => (
         <div key={link.title}>
-          <div className="text-left md:cursor-pointer  group">
+          <div className="text-left md:cursor-default group">
             <h1
               className="py-7 font-navLinks text-2xl hover:text-yellow-300 flex justify-center items-center"
               onClick={() => showSubLinks(link.title)}
@@ -27,23 +27,21 @@ const NavLinks = () => {
               </span>
             </h1>
             {link.showSubLinks && (
-              <div>
-                <div className="absolute top-20 hidden group-hover:md:block hover:md:block z-50">
-                  <div className="pt-5 pb-3">
-                    <span className="w-4 h-4 left-3 absolute mt-1 bg-zinc-900 rotate-45"></span>
-                  </div>
-                  <div className="bg-zinc-900 p-5 ">
-                    {link.subLinks.map((subLink) => (
-                      <li
-                        className="font-texts hover:text-yellow-200 my-2.5"
-                        key={subLink.text}
-                      >
-                        <NavLink className={activeLink} to={subLink.link}>
-                          {subLink.text}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </div>
+              <div className="absolute top-20 hidden group-hover:md:block hover:md:block z-50 md:cursor-pointer ">
+                <div className="pt-5 pb-3">
+                  <span className="w-4 h-4 left-3 absolute mt-1 bg-zinc-900 rotate-45"></span>
+                </div>
+                <div className="bg-zinc-900 p-5 ">
+                  {link.subLinks.map((subLink) => (
+                    <li
+                      className="font-texts hover:text-yellow-200 my-2.5"
+                      key={subLink.text}
+                    >
+                      <NavLink className={activeLink} to={subLink.link}>
+                        {subLink.text}
+                      </NavLink>
+                    </li>
+                  ))}
                 </div>
               </div>
             )}

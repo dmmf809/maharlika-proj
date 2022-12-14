@@ -11,7 +11,7 @@ const TheNav = ({ toggle }) => {
       <span className="ml-4 hidden md:block">
         <Link to="/">
           <img
-            src="./maharlika-logo.png"
+            src="./logo.png"
             loading="lazy"
             alt="Maharlika Women's Association of Calgary"
             className="block h-28 w-auto"
@@ -23,7 +23,7 @@ const TheNav = ({ toggle }) => {
         <div className="ml-2 mt-2 mb-2">
           <Link to="/">
             <img
-              src="./maharlika-logo.png"
+              src="./logo.png"
               loading="lazy"
               alt="Maharlika Women's Association of Calgary"
               className="block h-20 w-auto"
