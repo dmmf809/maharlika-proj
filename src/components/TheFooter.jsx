@@ -22,8 +22,8 @@ const TheFooter = () => {
         </div>
         <Sponsors />
       </div>
-      <div className="bg-zinc-500 md:bg-indigo-900 text-white">
-        <p className="md:hidden text-center text-xs pt-4">
+      <div className="bg-zinc-500 md:bg-indigo-900 text-white font-texts">
+        <p className="md:hidden text-center text-sm pt-4">
           More questions? Visit our socials:
         </p>
         <SocialLinks />

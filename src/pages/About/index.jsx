@@ -10,10 +10,10 @@ const WhoWeAre = () => {
         <div className="min-h-screen">
           <div className="flex flex-col justify-center items-center">
             <section>
-              <h1 className="text-2xl md:text-4xl text-center m-6 ">
+              <h1 className="text-2xl md:text-4xl text-center m-6 font-heading">
                 Who We Are
               </h1>
-              <p className="max-w-prose m-6 md:text-lg">
+              <p className="max-w-prose m-6 md:text-lg ">
                 Maharlika Divas Dance group is registered as a non-profit
                 organication named under Maharlika Women's Association of
                 Calgary founded by Cynthia Lacey. The group dances cultural and
@@ -24,7 +24,9 @@ const WhoWeAre = () => {
               </p>
             </section>
             <section>
-              <h1 className="text-center m-6 text-2xl md:text-4xl">Founder</h1>
+              <h1 className="text-center m-6 text-2xl md:text-4xl font-heading">
+                Founder
+              </h1>
               <img
                 src={Member1}
                 alt="Founder: Cynthia Lacey"
@@ -34,7 +36,9 @@ const WhoWeAre = () => {
             </section>
           </div>
           <section>
-            <h2 className="text-xl md:text-3xl text-center m-6">Members</h2>
+            <h2 className="text-xl md:text-3xl text-center m-6 font-heading">
+              Members
+            </h2>
             <div className="flex flex-wrap justify-center items-center md:mx-60">
               {members.map((member) => (
                 <div key={member.memberName}>

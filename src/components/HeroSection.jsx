@@ -11,7 +11,10 @@ const HeroSection = () => {
           Maharlika Diva Dancers
         </h1>
         <div className="w-full text-center mt-8 md:mt-12">
-          <Link className="bg-blue-600 text-white p-2 px-6 md:p-2 md:px-10 text-sm md:text-xl hover:text-black cursor-pointer">
+          <Link
+            to="/events/upcoming-events"
+            className="bg-blue-600 text-white p-2 px-6 md:p-2 md:px-10 text-sm md:text-xl hover:text-black cursor-pointer"
+          >
             View Events
           </Link>
         </div>

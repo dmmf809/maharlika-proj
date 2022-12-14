@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AppButton from "./AppButton";
-import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import NavLinks from "./NavLinks";
 
 const TheNav = ({ toggle }) => {
+  const activeLink = ({ isActive }) => (isActive ? "text-yellow-300" : "");
+
   return (
     <nav className="h-40 md:flex items-center justify-between bg-zinc-900 md:h-24 md:text-lg">
       <span className="ml-4 hidden md:block">
@@ -34,21 +36,31 @@ const TheNav = ({ toggle }) => {
       </div>
       <div className="flex justify-center md:hidden">
         <div>
-          <Link to="https://donate.stripe.com/test_6oE7v4cFade9aYMcMM">
+          <a
+            href="https://donate.stripe.com/test_6oE7v4cFade9aYMcMM"
+            rel="noopener"
+            target="_blank"
+          >
             <AppButton text="Donate" />
-          </Link>
+          </a>
         </div>
       </div>
       {/**End Mobile Nav */}
       <ul className="hidden md:flex items-center space-x-12 mx-4 text-white">
         <li className="font-navLinks text-2xl hover:text-yellow-300">
-          <Link to="/about">About</Link>
+          <NavLink to="/about" className={activeLink}>
+            About
+          </NavLink>
         </li>
         <NavLinks />
         <li>
-          <Link to="https://donate.stripe.com/test_6oE7v4cFade9aYMcMM">
+          <a
+            href="https://donate.stripe.com/test_6oE7v4cFade9aYMcMM"
+            rel="noopener"
+            target="_blank"
+          >
             <AppButton text="Donate" />
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>

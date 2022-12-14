@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineDown } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { links } from "../data/links";
 
 const TheSidebar = ({ istoggle, toggle }) => {
@@ -9,6 +9,8 @@ const TheSidebar = ({ istoggle, toggle }) => {
   const showSubLinks = (link) => {
     title !== link ? setTitle(link) : setTitle("");
   };
+
+  const activeLink = ({ isActive }) => (isActive ? "text-yellow-300" : "");
 
   return (
     <aside
@@ -33,9 +35,9 @@ const TheSidebar = ({ istoggle, toggle }) => {
 
       <div className="text-white text-center space-y-10">
         <div className="text-3xl hover:text-yellow-300 font-navLinks">
-          <Link to="/about" onClick={toggle}>
+          <NavLink className={activeLink} to="/about" onClick={toggle}>
             About
-          </Link>
+          </NavLink>
         </div>
         {links.map((link) => (
           <div key={link.title}>
@@ -50,14 +52,17 @@ const TheSidebar = ({ istoggle, toggle }) => {
             </h1>
             <div className={`${title === link.title ? "md:hidden" : "hidden"}`}>
               {link.subLinks.map((subLink) => (
-                <div className="my-6" key={subLink.text}>
-                  <Link
-                    className="hover:text-yellow-200 "
+                <div
+                  className="my-6 font-texts hover:text-yellow-200"
+                  key={subLink.text}
+                >
+                  <NavLink
+                    className={activeLink}
                     to={subLink.link}
                     onClick={toggle}
                   >
                     {subLink.text}
-                  </Link>
+                  </NavLink>
                 </div>
               ))}
             </div>

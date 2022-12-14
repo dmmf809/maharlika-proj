@@ -1,14 +1,30 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { AiOutlineDown } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 import { links } from "../data/links";
 
 const NavLinks = () => {
+  const [title, setTitle] = useState("");
+
+  const showSubLinks = (link) => {
+    title !== link ? setTitle(link) : setTitle("");
+  };
+
+  const activeLink = ({ isActive }) => (isActive ? "text-yellow-300" : "");
+
   return (
     <>
       {links.map((link) => (
         <div key={link.title}>
-          <div className="px-3 text-left md:cursor-pointer  group">
-            <h1 className="py-7 font-navLinks text-2xl hover:text-yellow-300">
+          <div className="text-left md:cursor-pointer  group">
+            <h1
+              className="py-7 font-navLinks text-2xl hover:text-yellow-300 flex justify-center items-center"
+              onClick={() => showSubLinks(link.title)}
+            >
               {link.title}
+              <span className="pl-2">
+                <AiOutlineDown size={20} />
+              </span>
             </h1>
             {link.showSubLinks && (
               <div>
@@ -18,13 +34,13 @@ const NavLinks = () => {
                   </div>
                   <div className="bg-zinc-900 p-5 ">
                     {link.subLinks.map((subLink) => (
-                      <li className="text-sm my-2.5" key={subLink.text}>
-                        <Link
-                          className="hover:text-yellow-200"
-                          to={subLink.link}
-                        >
+                      <li
+                        className="font-texts hover:text-yellow-200 my-2.5"
+                        key={subLink.text}
+                      >
+                        <NavLink className={activeLink} to={subLink.link}>
                           {subLink.text}
-                        </Link>
+                        </NavLink>
                       </li>
                     ))}
                   </div>

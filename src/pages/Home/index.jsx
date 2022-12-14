@@ -7,7 +7,9 @@ const Home = () => {
     <>
       <HeroSection />
       <article className="my-16">
-        <h1 className="text-2xl md:text-4xl text-center">Recent Events</h1>
+        <h1 className="text-2xl md:text-4xl text-center font-heading">
+          Recent Events
+        </h1>
         <div className="flex flex-wrap justify-center items-center ">
           <section className="m-6">
             <img
