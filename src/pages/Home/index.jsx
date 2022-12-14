@@ -1,6 +1,7 @@
 import HeroSection from "../../components/HeroSection";
 import Image1 from "../../assets/images/recent-events/maharlika-christmas.jpg";
 import ContactForm from "../../components/ContactForm";
+import supabase from "../../config/supabaseClient";
 
 const Home = () => {
   return (

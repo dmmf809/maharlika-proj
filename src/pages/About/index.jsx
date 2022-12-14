@@ -1,8 +1,27 @@
 import PageBanner from "../../components/PageBanner";
 import Member1 from "../../assets/images/members/member-1.jpg";
-import { members } from "../../data/members";
+import { useEffect, useState } from "react";
+import supabase from "../../config/supabaseClient";
 
 const WhoWeAre = () => {
+  const [errorMsg, setErrorMsg] = useState("");
+  const [images, setImages] = useState(null);
+
+  useEffect(() => {
+    const getImages = async () => {
+      const { data, error } = await supabase.from("members").select();
+
+      if (data !== null) {
+        setImages(data);
+      } else {
+        setErrorMsg("Images cant be loaded at the moment. Sorry");
+        console.error(error);
+      }
+    };
+
+    getImages();
+  }, []);
+
   return (
     <>
       <PageBanner />
@@ -40,18 +59,20 @@ const WhoWeAre = () => {
               Members
             </h2>
             <div className="flex flex-wrap justify-center items-center md:mx-60">
-              {members.map((member) => (
-                <div key={member.memberName}>
-                  <div className="pt-1.5 px-1.5 md:pt-4 md:px-4">
-                    <img
-                      src={member.image}
-                      alt={member.memberName}
-                      className="w-full h-52 md:h-72"
-                    />
+              {errorMsg && <p>{errorMsg}</p>}
+              {images &&
+                images.map((member) => (
+                  <div key={member.id}>
+                    <div className="pt-1.5 px-1.5 md:pt-2 md:px-4">
+                      <img
+                        src={member.memberImg}
+                        alt={member.memberName}
+                        className="w-full h-52 md:h-72"
+                      />
+                    </div>
+                    <div className="text-center pb-4">{member.memberName}</div>
                   </div>
-                  <div className="text-center pb-4">{member.memberName}</div>
-                </div>
-              ))}
+                ))}
             </div>
           </section>
         </div>
