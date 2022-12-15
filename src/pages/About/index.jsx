@@ -1,5 +1,4 @@
 import PageBanner from "../../components/PageBanner";
-import Member1 from "../../assets/images/members/member-1.jpg";
 import { useEffect, useState } from "react";
 import supabase from "../../config/supabaseClient";
 
@@ -7,6 +6,7 @@ const WhoWeAre = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [images, setImages] = useState(null);
   const [bannerImg, setBannerImg] = useState(null);
+  const [founderImg, setFounderImg] = useState(null);
 
   useEffect(() => {
     const getBannerImg = async () => {
@@ -28,6 +28,22 @@ const WhoWeAre = () => {
     };
 
     getBannerImg();
+
+    const getFounderImg = async () => {
+      const { data, error } = supabase.storage
+        .from("maharlika-photos")
+        .getPublicUrl("members/member-1.jpg");
+
+      if (data !== null) {
+        setFounderImg(data);
+        setErrorMsg("");
+      } else {
+        setErrorMsg("Founder image can't be loaded at the moment. Sorry");
+        console.error(error);
+      }
+    };
+
+    getFounderImg();
 
     const getImages = async () => {
       const { data, error } = await supabase.from("members").select();
@@ -62,8 +78,8 @@ const WhoWeAre = () => {
               </h1>
               <p className="max-w-prose m-6 md:text-lg ">
                 Maharlika Divas Dance group is registered as a non-profit
-                organication named under Maharlika Women's Association of
-                Calgary founded by Cynthia Lacey. The group dances cultural and
+                organization named under Maharlika Women's Association of
+                Calgary founded by Sholan Lacey. The group dances cultural and
                 modern dance. Recently Maharlika Divas had their successful
                 concert last October 22, 2022. All members are volunteer and
                 they are not professional dancers, they just want to enjoy and
@@ -75,11 +91,11 @@ const WhoWeAre = () => {
                 Founder
               </h1>
               <img
-                src={Member1}
-                alt="Founder: Cynthia Lacey"
+                src={founderImg?.publicUrl}
+                alt="Founder: Sholan Lacey"
                 className="w-full h-96"
               />
-              <div className="text-center mb-6 mt-2">Name</div>
+              <div className="text-center mb-6 mt-2">Sholan Lacey</div>
             </section>
           </div>
           <section>

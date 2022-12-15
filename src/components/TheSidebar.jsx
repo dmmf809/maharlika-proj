@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import { links } from "../data/links";
+import Logo from "/logo.png";
 
 const TheSidebar = ({ istoggle, toggle }) => {
   const [title, setTitle] = useState("");
@@ -22,7 +23,7 @@ const TheSidebar = ({ istoggle, toggle }) => {
       <div className="absolute cursor-pointer top-2 left-2">
         <Link to="/" onClick={toggle}>
           <img
-            src="./logo.png"
+            src={Logo}
             loading="lazy"
             alt="Maharlika Women's Association of Calgary"
             className="block h-20 w-auto"

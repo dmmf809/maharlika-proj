@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import AppButton from "./AppButton";
 import { AiOutlineMenu } from "react-icons/ai";
 import NavLinks from "./NavLinks";
+import Logo from "/logo.png";
 
 const TheNav = ({ toggle }) => {
   const activeLink = ({ isActive }) => (isActive ? "text-yellow-300" : "");
@@ -11,7 +12,7 @@ const TheNav = ({ toggle }) => {
       <span className="ml-4 hidden md:block">
         <Link to="/">
           <img
-            src="./logo.png"
+            src={Logo}
             loading="lazy"
             alt="Maharlika Women's Association of Calgary"
             className="block h-28 w-auto"
@@ -23,7 +24,7 @@ const TheNav = ({ toggle }) => {
         <div className="ml-2 mt-2 mb-2">
           <Link to="/">
             <img
-              src="./logo.png"
+              src={Logo}
               loading="lazy"
               alt="Maharlika Women's Association of Calgary"
               className="block h-20 w-auto"

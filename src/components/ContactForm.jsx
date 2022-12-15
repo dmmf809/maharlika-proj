@@ -1,9 +1,30 @@
-import { useState } from "react";
-import Logo from "../assets/images/contact-form/maharlika-logo.jpg";
+import { useEffect, useState } from "react";
 import AppButton from "./AppButton";
+import supabase from "../config/supabaseClient";
 
 const ContactForm = () => {
   const [formStatus, setFormStatus] = useState("Send");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [contactLogo, setContactLogo] = useState(null);
+
+  useEffect(() => {
+    const getContactLogo = async () => {
+      const { data, error } = supabase.storage
+        .from("maharlika-photos")
+        .getPublicUrl("logo/contact-form-logo.jpg");
+
+      if (data !== null) {
+        setContactLogo(data);
+        setErrorMsg("");
+      } else {
+        setErrorMsg("Logo can't be loaded at the moment. Sorry");
+        console.error(error);
+      }
+    };
+
+    getContactLogo();
+  }, []);
+
   const onSubmit = (e) => {
     e.preventDefault();
     setFormStatus("Submitting...");
@@ -18,7 +39,10 @@ const ContactForm = () => {
   return (
     <section className="flex flex-col md:flex-row md:w-full bg-[#4E4E4E]">
       <div className="w-4/5 md:w-2/5 mx-auto md:mx-0">
-        <img src={Logo} alt="Maharlika Diva Dancers logo" />
+        {errorMsg && <div className="min-h-screen text-center">{errorMsg}</div>}
+        {contactLogo && (
+          <img src={contactLogo.publicUrl} alt="Maharlika Diva Dancers logo" />
+        )}
       </div>
       <div className="md:mx-auto py-8 md:pt-16 md:px-36" id="contact">
         <h2 className="mb-4 text-4xl tracking-tight font-semibold text-center text-gray-900 dark:text-white">

@@ -1,9 +1,30 @@
 import HeroSection from "../../components/HeroSection";
-import Image1 from "../../assets/images/recent-events/maharlika-christmas.jpg";
 import ContactForm from "../../components/ContactForm";
 import supabase from "../../config/supabaseClient";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [errorMsg, setErrorMsg] = useState("");
+  const [recentEvent, setRecentEvent] = useState(null);
+
+  useEffect(() => {
+    const getRecentEvent = async () => {
+      const { data, error } = supabase.storage
+        .from("maharlika-photos")
+        .getPublicUrl("recent-events/maharlika-christmas.jpg");
+
+      if (data !== null) {
+        setRecentEvent(data);
+        setErrorMsg("");
+      } else {
+        setErrorMsg("Logo can't be loaded at the moment. Sorry");
+        console.error(error);
+      }
+    };
+
+    getRecentEvent();
+  }, []);
+
   return (
     <>
       <HeroSection />
@@ -14,7 +35,7 @@ const Home = () => {
         <div className="flex flex-wrap justify-center items-center ">
           <section className="m-6">
             <img
-              src={Image1}
+              src={recentEvent?.publicUrl}
               alt="FCWC Christmas Event"
               className="max-w-sm md:max-w-lg p-4 mx-auto"
             />
@@ -34,7 +55,7 @@ const Home = () => {
           </section>
           <section className="m-4">
             <img
-              src={Image1}
+              src={recentEvent?.publicUrl}
               alt="FCWC Christmas Event"
               className="max-w-sm md:max-w-lg p-4 mx-auto"
             />
