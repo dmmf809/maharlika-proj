@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import HeroImage from "../assets/images/hero-images/dancing.jpg";
+import supabase from "../config/supabaseClient";
 
 const HeroSection = () => {
+  const [errorMsg, setErrorMsg] = useState("");
+  const [heroImg, setHeroImg] = useState(null);
+
+  useEffect(() => {
+    const getHeroImg = async () => {
+      const { data, error } = await supabase
+        .from("pageBanners")
+        .select()
+        .eq("id", 1)
+        .single();
+
+      if (data !== null) {
+        setHeroImg(data);
+      } else {
+        setErrorMsg(
+          "Page banner/hero image can't be loaded at the moment. Sorry"
+        );
+        console.error(error);
+      }
+    };
+
+    getHeroImg();
+  }, []);
+
   return (
     <div className="w-full relative">
       <div className="w-full h-full top-0 left-0 absolute opacity-50 bg-black"></div>
@@ -19,11 +43,14 @@ const HeroSection = () => {
           </Link>
         </div>
       </div>
-      <img
-        src={HeroImage}
-        alt="Maharlika Divas dancing"
-        className="object-cover max-h-screen w-full"
-      />
+      {errorMsg && <div className="min-h-screen text-center">{errorMsg}</div>}
+      {heroImg && (
+        <img
+          src={heroImg.imgSrc}
+          alt="Maharlika Divas dancing"
+          className="object-cover max-h-screen w-full"
+        />
+      )}
     </div>
   );
 };

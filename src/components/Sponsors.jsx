@@ -18,12 +18,11 @@ const Sponsors = () => {
     };
 
     getSponsors();
-    console.log(sponsorsData);
   }, []);
 
   return (
     <div className="flex items-center">
-      Sponsors:Data
+      Sponsors:
       {errorMsg && <p>{errorMsg}</p>}
       {sponsorsData &&
         sponsorsData.map((sponsor) => (

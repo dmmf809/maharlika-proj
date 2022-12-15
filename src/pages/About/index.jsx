@@ -1,5 +1,4 @@
 import PageBanner from "../../components/PageBanner";
-import Banner from "../../assets/images/page-banner/who-we-are.jpg";
 import Member1 from "../../assets/images/members/member-1.jpg";
 import { useEffect, useState } from "react";
 import supabase from "../../config/supabaseClient";
@@ -7,8 +6,29 @@ import supabase from "../../config/supabaseClient";
 const WhoWeAre = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [images, setImages] = useState(null);
+  const [bannerImg, setBannerImg] = useState(null);
 
   useEffect(() => {
+    const getBannerImg = async () => {
+      const { data, error } = await supabase
+        .from("pageBanners")
+        .select()
+        .eq("id", 4)
+        .single();
+
+      if (data !== null) {
+        setBannerImg(data);
+        setErrorMsg("");
+      } else {
+        setErrorMsg(
+          "Page banner/hero image can't be loaded at the moment. Sorry"
+        );
+        console.error(error);
+      }
+    };
+
+    getBannerImg();
+
     const getImages = async () => {
       const { data, error } = await supabase.from("members").select();
 
@@ -25,7 +45,14 @@ const WhoWeAre = () => {
 
   return (
     <>
-      <PageBanner image={Banner} alt="Group photo with Christmas outfits" />
+      {errorMsg && <div className="min-h-screen text-center">{errorMsg}</div>}
+      {bannerImg && (
+        <PageBanner
+          image={bannerImg.imgSrc}
+          alt="Group photo with Christmas outfits"
+        />
+      )}
+
       <article className="my-10">
         <div className="min-h-screen">
           <div className="flex flex-col justify-center items-center">
