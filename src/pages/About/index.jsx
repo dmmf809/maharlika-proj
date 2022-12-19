@@ -111,7 +111,7 @@ const WhoWeAre = () => {
                       <img
                         src={member.memberImg}
                         alt={member.memberName}
-                        className="w-full h-52 md:h-72"
+                        className="w-auto h-52 md:h-72"
                       />
                     </div>
                     <div className="text-center pb-4">{member.memberName}</div>

@@ -91,9 +91,11 @@ const ContactForm = () => {
               required
             />
           </div>
-          <button type="submit">
-            <AppButton text={formStatus} />
-          </button>
+          <div className="flex justify-center">
+            <button type="submit">
+              <AppButton text={formStatus} />
+            </button>
+          </div>
         </form>
       </div>
     </section>
